@@ -2,7 +2,7 @@
 <template lang="pug">
 #body
   .header
-    mu-appbar(title='UCloud SSH')
+    mu-appbar(title='Nuxt')
       mu-flat-button(v-if='userName',:label='userName',slot='right')
       mu-icon-button(v-if='isLoggedIn',icon='exit_to_app',slot='right',@click='doLogout')
   nuxt
