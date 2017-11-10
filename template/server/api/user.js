@@ -6,7 +6,7 @@ import config from '../../plugins/config'
 const router = Router()
 
 async function auth(username, password) {
-    let url = config.gapperBase + '/api/v1/auth/verify'
+    let url = (config.gapperBase || 'http://gapper.in') + '/api/v1/auth/verify'
     const e = encodeURIComponent
     let { data } = await axios.get(
         url + '?username=' + e(username) + '&password=' + e(password)

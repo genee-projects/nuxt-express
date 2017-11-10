@@ -1,4 +1,3 @@
 ---
-# Put your config here
-foo: bar
+gapperBase: http://gapper.in
 ...
