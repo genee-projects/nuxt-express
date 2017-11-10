@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     data() {
         return {
@@ -21,6 +23,9 @@ export default {
             loading: false
         }
     },
+    computed: mapState({
+        doLogin: state => state.user.doLogin
+    }),
     methods: {
         submitLogin() {
             this.loading = true

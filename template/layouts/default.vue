@@ -19,7 +19,6 @@ export default {
         'login-form': () => import('~/components/LoginForm.vue')
     },
     computed: mapState({
-        doLogin: state => state.user.doLogin,
         isLoggedIn: state => !!state.user.me,
         userName: state => (state.user.me ? state.user.me.username : null)
     }),
