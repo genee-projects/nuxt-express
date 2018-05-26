@@ -12,11 +12,11 @@
 
 <script>
 import { mapState } from 'vuex'
-import axios from '~/plugins/axios'
+import LoginForm from '~/components/LoginForm.vue'
 
 export default {
     components: {
-        'login-form': () => import('~/components/LoginForm.vue')
+        LoginForm
     },
     computed: mapState({
         isLoggedIn: state => !!state.user.me,
@@ -28,19 +28,10 @@ export default {
         },
         doLogout() {
             this.$store.dispatch('user/logout')
-        },
-        async checkAuth() {
-            let commit = this.$store.commit
-            try {
-                let { data } = await axios.get('/api/user/status')
-                commit('user/login', data)
-            } catch (e) {
-                commit('user/doLogin')
-            }
         }
     },
     mounted() {
-        this.checkAuth()
+        this.$store.dispatch('user/status')
     }
 }
 </script>
